@@ -12,29 +12,27 @@ var generateBtn = document.querySelector("#generate");
   // Step #4: Display password to the page. (Already done)
 
 function generatePassword() {
-// Prompts user to put 
+
+// Prompts user to put in a number between 8 and 128
   var userCharAnswer = prompt("How many characters should the password contain? (8 min and 128 max)");
-  // Test if user's answer is a number
+
+  // Tests if the user's input is a number
   if (isNaN(userCharAnswer)) {
-    // Test if user's answer is a number greater than 7
-    if (userCharAnswer > 7) {
+    alert("Invalid answer. Please enter a number.");
+  } else {
       var userLowercaseAnswer = window.confirm("Should the password contain lowercase letters?");
       var userUppercaseAnswer = window.confirm("Should the password contain uppercase letters?");
       var userNumberAnswer = window.confirm("Should the password contain numbers?");
       var userSpecialNumAnswer = window.confirm("Should the password contain special characters?");
-    }
-    
-  } else {
-    // Prompt that they need a number
-    alert("Invalid answer. Please enter a number.");
-    generatePassword();
+    // } else {
+    //   alert("Invalid answer. Please enter a number between 8 and 128.");
+    // }
   }
-  //needs to return the generated password. So make genrated password a variable adn return the variable
-  return;
 }
 
 
-
+  //needs to return the generated password. So make genrated password a variable adn return the variable
+  // return;
 
 // Write password to the #password input
 function writePassword() {
