@@ -18,3 +18,14 @@ When user enters invalid input for character amount:
 When user fails to select any criteria to include in their generated password:
 
 ![Please select at least one criteria](./asset/image/alert-criteria.jpg)
+
+## How to Run Project
+1. Go to  this [respository](https://github.com/christylex3/password-generator) on GitHub.
+2. Clone it to your computer.
+3. Find the `index.html` within the `password-generator` folder and open it with Visual Studio Code.
+4. Then launch the `index.html` file to see the website, which should look like [this](https://christylex3.github.io/password-generator/).
+
+## Credits
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+* https://www.w3schools.com/js/js_string_methods.asp
