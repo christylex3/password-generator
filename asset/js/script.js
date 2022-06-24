@@ -48,12 +48,6 @@ for (var n = 97; n > 123; n++) {
   console.log(numCode);
 }
 
-var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
-var uppercaseLetters = lowercaseLetters.toUpperCase();
-var numbers = "01234567890";
-// var specialCharacters = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-// console.log(specialCharacters);
-
 // console.log(lowercaseLetters);
 // console.log(uppercaseLetters);
 
@@ -65,6 +59,12 @@ var numbers = "01234567890";
 
 // var uppercaseArray = 
 // var userPrefSaved = [userLowercaseAnswer, userUppercaseAnswer, ];
+
+var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
+var uppercaseLetters = lowercaseLetters.toUpperCase();
+var numbers = "01234567890";
+var specialChar = "~`!@#$%^&*()-_+={}[]|\\/:;\"'<>,.?";
+
 
   function userPreferences (x) {
     var generator = "";
@@ -82,7 +82,10 @@ var numbers = "01234567890";
     if (userNumberAnswer) {
       generator += numbers;
     }
-    var result 
+    if (userSpecialNumAnswer) {
+      generator += specialChar
+    }
+    result = Math.random() * generator
   }
 
 
