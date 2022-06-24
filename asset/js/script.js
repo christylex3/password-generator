@@ -14,22 +14,26 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword() {
 
 // Prompts user to put in a number between 8 and 128
-  var userCharAnswer = prompt("How many characters should the password contain? (8 min and 128 max)");
+  var userCharAnswer = prompt("How many characters should the password contain? (8 - 128)");
 
   // Tests if the user's input is a number
   if (isNaN(userCharAnswer)) {
     alert("Invalid answer. Please enter a number.");
   } else {
-      var userLowercaseAnswer = window.confirm("Should the password contain lowercase letters?");
-      var userUppercaseAnswer = window.confirm("Should the password contain uppercase letters?");
-      var userNumberAnswer = window.confirm("Should the password contain numbers?");
-      var userSpecialNumAnswer = window.confirm("Should the password contain special characters?");
+    // Checks if the user's input is in range of 8 and 128
+    if (userCharAnswer > 7 && userCharAnswer < 129) {
+      console.log("It is in range!");
+      // var userLowercaseAnswer = window.confirm("Should the password contain lowercase letters?");
+      // var userUppercaseAnswer = window.confirm("Should the password contain uppercase letters?");
+      // var userNumberAnswer = window.confirm("Should the password contain numbers?");
+      // var userSpecialNumAnswer = window.confirm("Should the password contain special characters?");
     // } else {
     //   alert("Invalid answer. Please enter a number between 8 and 128.");
-    // }
+    } else {
+      alert("Invalid answer. Please enter a number between 8 and 128.");
+    }
   }
 }
-
 
   //needs to return the generated password. So make genrated password a variable adn return the variable
   // return;
