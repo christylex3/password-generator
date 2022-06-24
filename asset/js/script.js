@@ -1,69 +1,66 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-  // Step #1: Prompt the user for the password criteria:
-  //      a) Password length: minimum 8 characters and maximum 128 characters
-  //      b) Lowercase, uppercase, numbers, special characters
-  // Step #2: Validate the input
-  // Step #3: Generate password based on criteria.
-  // Step #4: Display password to the page. (Already done)
-
-// *** charCodeAt() returns the unicode of the character at a specificed positon in a string
-
+var userCharAnswer;
+var userLowercaseAnswer;
+var userUppercaseAnswer;
+var userNumberAnswer;
+var userSpecialCharAnswer;
 var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
 var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "01234567890";
 var specialChar = "~`!@#$%^&*()-_+={}[]|\\/:;\"'<>,.?";
 
-console.log("lower.charAt: " + lowercaseLetters.charAt(25));
-console.log("lower.length: " + lowercaseLetters.length);
-console.log(lowercaseLetters.length-1);
-console.log("lower.charAt(lower.length-1): " + lowercaseLetters.charAt(lowercaseLetters.length-1));
-console.log("Math.random: " + Math.random() * 4);
-console.log("Math.random with string.length-1: " + (Math.random() * (lowercaseLetters.length-1)));
-console.log("Math.floor and Math.random with string.length: " + Math.floor(Math.random() * lowercaseLetters.length) )
-console.log(lowercaseLetters.charAt(Math.floor(Math.random()*lowercaseLetters.length-1)));
+function userPreferences () {
+  userCharAnswer = prompt("How many characters should the password contain? (8 - 128)");
 
-
-  function userPreferences (userCharAnswer) {
-    var generator = "";
-    var result = "";
-    var userLowercaseAnswer = window.confirm("Should the password contain lowercase letters?");
-    var userUppercaseAnswer = window.confirm("Should the password contain uppercase letters?");
-    var userNumberAnswer = window.confirm("Should the password contain numbers?");
-    var userSpecialCharAnswer = window.confirm("Should the password contain special characters?");
-    if (userLowercaseAnswer) {
-      generator += lowercaseLetters;
-    }
-    if (userUppercaseAnswer) {
-      generator += uppercaseLetters;
-    }
-    if (userNumberAnswer) {
-      generator += numbers;
-    }
-    if (userSpecialCharAnswer) {
-      generator += specialChar;
-    }
-    if (generator === "") {
-      alert("Please select at least one criteria.");
-    }
-    for (var i = 0; i < userCharAnswer; i++) {
-      result += generator.charAt(Math.floor(Math.random() * (generator.length-1)));
-    }
-    return result;
+  if(isNaN(userCharAnswer)) {
+    alert("Invalid answer. Please enter a number.");
+    return;
   }
+  
+  if (userCharAnswer < 8 || userCharAnswer > 128) {
+    alert("Invalid answer. Please enter a number between 8 and 128.");
+    return;
+  }
+
+  userLowercaseAnswer = window.confirm("Should the password contain lowercase letters?");
+  userUppercaseAnswer = window.confirm("Should the password contain uppercase letters?");
+  userNumberAnswer = window.confirm("Should the password contain numbers?");
+  userSpecialCharAnswer = window.confirm("Should the password contain special characters?");
+}
 
 function generatePassword() {
-  var userCharAnswer = prompt("How many characters should the password contain? (8 - 128)");
-  if (isNaN(userCharAnswer)) {
-    alert("Invalid answer. Please enter a number.");
-  } else {
-    if (userCharAnswer > 7 && userCharAnswer < 129) {
-      return userPreferences(userCharAnswer);
-    } else {
-      alert("Invalid answer. Please enter a number between 8 and 128.");
-    }
+  userPreferences();
+
+  var generator = "";
+  var result = "";
+
+  if (userLowercaseAnswer) {
+    generator += lowercaseLetters;
   }
+
+  if (userUppercaseAnswer) {
+    generator += uppercaseLetters;
+  }
+
+  if (userNumberAnswer) {
+    generator += numbers;
+  }
+
+  if (userSpecialCharAnswer) {
+    generator += specialChar;
+  }
+
+  if (generator === "" && (userCharAnswer > 7 && userCharAnswer < 129)) {
+    alert("Please select at least one criteria.");
+  }
+
+  for (var i = 0; i < userCharAnswer; i++) {
+    result += generator.charAt(Math.floor(Math.random() * (generator.length-1)));
+  }
+
+  return result;
 }
 
 // Write password to the #password input
