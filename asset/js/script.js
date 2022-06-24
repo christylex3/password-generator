@@ -15,8 +15,14 @@ var uppercaseLetters = lowercaseLetters.toUpperCase();
 var numbers = "01234567890";
 var specialChar = "~`!@#$%^&*()-_+={}[]|\\/:;\"'<>,.?";
 
+console.log(lowercaseLetters.charAt(25));
+console.log(lowercaseLetters.length);
+console.log(Math.random() * 4);
+console.log(Math.random() * lowercaseLetters.length);
+console.log(lowercaseLetters.charAt(Math.floor(Math.random()*lowercaseLetters.length)));
 
-  function userPreferences (x) {
+
+  function userPreferences (userCharAnswer) {
     var generator = "";
     var result = "";
     var userLowercaseAnswer = window.confirm("Should the password contain lowercase letters?");
@@ -35,10 +41,14 @@ var specialChar = "~`!@#$%^&*()-_+={}[]|\\/:;\"'<>,.?";
     if (userSpecialNumAnswer) {
       generator += specialChar
     }
-    return generator;
-    // result = Math.random() * generator
+    // console.log(generator.charAt(10));
+    // now make for-loop to go through generator to pick out random chars based upon userCharAnswer
+    // generator.charAt(Math.floor(Math.random() * ge))
+    // for (var i = 0; i > userCharAnswer.length-1; i++) {
+    //   result +=  generator.charAt(Math.floor(Math.random() * generator.length));
+    // }
+    // return result;
   }
-
 
 function generatePassword() {
   var userCharAnswer = prompt("How many characters should the password contain? (8 - 128)");
@@ -65,6 +75,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
