@@ -20,7 +20,7 @@ console.log("lower.length: " + lowercaseLetters.length);
 console.log(lowercaseLetters.length-1);
 console.log("lower.charAt(lower.length-1): " + lowercaseLetters.charAt(lowercaseLetters.length-1));
 console.log("Math.random: " + Math.random() * 4);
-console.log("Math.random with string.length: " + Math.random() * lowercaseLetters.length-1);
+console.log("Math.random with string.length-1: " + (Math.random() * (lowercaseLetters.length-1)));
 console.log("Math.floor and Math.random with string.length: " + Math.floor(Math.random() * lowercaseLetters.length) )
 console.log(lowercaseLetters.charAt(Math.floor(Math.random()*lowercaseLetters.length-1)));
 
@@ -44,14 +44,11 @@ console.log(lowercaseLetters.charAt(Math.floor(Math.random()*lowercaseLetters.le
     if (userSpecialCharAnswer) {
       generator += specialChar;
     }
-    // console.log(generator.charAt(10));
-    // now make for-loop to go through generator to pick out random chars based upon userCharAnswer
-    // generator.charAt(Math.floor(Math.random() * ge))
-    // console.log(generator);
-    // console.log(generator.length);
-    for (var i = 0; i < userCharAnswer.length; i++) {
-      result += generator.charAt(Math.floor(Math.random() * generator.length-1));
-      console.log(result);
+    if (generator === "") {
+      alert("Please select at least one criteria.");
+    }
+    for (var i = 0; i < userCharAnswer; i++) {
+      result += generator.charAt(Math.floor(Math.random() * (generator.length-1)));
     }
     return result;
   }
