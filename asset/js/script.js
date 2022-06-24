@@ -11,17 +11,18 @@ var generateBtn = document.querySelector("#generate");
 // *** charCodeAt() returns the unicode of the character at a specificed positon in a string
 
 var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
-var uppercaseLetters = lowercaseLetters.toUpperCase();
+var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "01234567890";
 var specialChar = "~`!@#$%^&*()-_+={}[]|\\/:;\"'<>,.?";
 
 console.log("lower.charAt: " + lowercaseLetters.charAt(25));
 console.log("lower.length: " + lowercaseLetters.length);
-console.log("lower.charAt(length): " + lowercaseLetters.charAt(lowercaseLetters.length-1));
+console.log(lowercaseLetters.length-1);
+console.log("lower.charAt(lower.length-1): " + lowercaseLetters.charAt(lowercaseLetters.length-1));
 console.log("Math.random: " + Math.random() * 4);
-console.log("Math.random with string.length: " + Math.random() * lowercaseLetters.length);
+console.log("Math.random with string.length: " + Math.random() * lowercaseLetters.length-1);
 console.log("Math.floor and Math.random with string.length: " + Math.floor(Math.random() * lowercaseLetters.length) )
-console.log(lowercaseLetters.charAt(Math.floor(Math.random()*lowercaseLetters.length)));
+console.log(lowercaseLetters.charAt(Math.floor(Math.random()*lowercaseLetters.length-1)));
 
 
   function userPreferences (userCharAnswer) {
@@ -30,7 +31,7 @@ console.log(lowercaseLetters.charAt(Math.floor(Math.random()*lowercaseLetters.le
     var userLowercaseAnswer = window.confirm("Should the password contain lowercase letters?");
     var userUppercaseAnswer = window.confirm("Should the password contain uppercase letters?");
     var userNumberAnswer = window.confirm("Should the password contain numbers?");
-    var userSpecialNumAnswer = window.confirm("Should the password contain special characters?");
+    var userSpecialCharAnswer = window.confirm("Should the password contain special characters?");
     if (userLowercaseAnswer) {
       generator += lowercaseLetters;
     }
@@ -40,16 +41,19 @@ console.log(lowercaseLetters.charAt(Math.floor(Math.random()*lowercaseLetters.le
     if (userNumberAnswer) {
       generator += numbers;
     }
-    if (userSpecialNumAnswer) {
-      generator += specialChar
+    if (userSpecialCharAnswer) {
+      generator += specialChar;
     }
     // console.log(generator.charAt(10));
     // now make for-loop to go through generator to pick out random chars based upon userCharAnswer
     // generator.charAt(Math.floor(Math.random() * ge))
-    // for (var i = 0; i > userCharAnswer.length-1; i++) {
-    //   result +=  generator.charAt(Math.floor(Math.random() * generator.length));
-    // }
-    // return result;
+    // console.log(generator);
+    // console.log(generator.length);
+    for (var i = 0; i < userCharAnswer.length; i++) {
+      result += generator.charAt(Math.floor(Math.random() * generator.length-1));
+      console.log(result);
+    }
+    return result;
   }
 
 function generatePassword() {
