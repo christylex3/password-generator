@@ -15,10 +15,12 @@ var uppercaseLetters = lowercaseLetters.toUpperCase();
 var numbers = "01234567890";
 var specialChar = "~`!@#$%^&*()-_+={}[]|\\/:;\"'<>,.?";
 
-console.log(lowercaseLetters.charAt(25));
-console.log(lowercaseLetters.length);
-console.log(Math.random() * 4);
-console.log(Math.random() * lowercaseLetters.length);
+console.log("lower.charAt: " + lowercaseLetters.charAt(25));
+console.log("lower.length: " + lowercaseLetters.length);
+console.log("lower.charAt(length): " + lowercaseLetters.charAt(lowercaseLetters.length-1));
+console.log("Math.random: " + Math.random() * 4);
+console.log("Math.random with string.length: " + Math.random() * lowercaseLetters.length);
+console.log("Math.floor and Math.random with string.length: " + Math.floor(Math.random() * lowercaseLetters.length) )
 console.log(lowercaseLetters.charAt(Math.floor(Math.random()*lowercaseLetters.length)));
 
 
