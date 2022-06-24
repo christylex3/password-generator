@@ -9,7 +9,7 @@ var userSpecialCharAnswer;
 var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
 var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "01234567890";
-var specialChar = "~`!@#$%^&*()-_+={}[]|\\/:;\"'<>,.?";
+var specialChar = " ~`!@#$%^&*()-_+={}[]|\\/:;\"'<>,.?";
 
 // Method prompts the user to get their preferences
 function userPreferences () {
